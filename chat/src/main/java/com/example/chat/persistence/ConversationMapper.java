@@ -1,4 +1,4 @@
-package com.example.chat.gateways;
+package com.example.chat.persistence;
 
 import org.springframework.jdbc.core.RowMapper;
 
