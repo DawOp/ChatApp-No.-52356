@@ -2,11 +2,13 @@ package com.example.chat.persistence;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 /* Table Data Gateway Pattern */
+@Repository
 public class UserGateway {
     @Autowired
     private JdbcTemplate jdbcTemplate;

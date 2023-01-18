@@ -2,10 +2,12 @@ package com.example.chat.persistence;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /* Data Mapper Pattern */
+@Repository
 public class ContactGateway implements ContactDao{
     @Autowired
     private JdbcTemplate jdbcTemplate;

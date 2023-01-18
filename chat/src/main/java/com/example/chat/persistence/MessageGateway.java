@@ -15,7 +15,7 @@ public class MessageGateway implements MessageDao {
     @Override
     public int addMessage(Message message) {
         var sql = """ 
-                INSERT INTO MESSAGES (sender_id, conversation_id, text,created_at)
+                INSERT INTO MESSAGES (sender_id, conversation_id, text, created_at)
                 VALUES (?,?,?,?)
                 """;
         return jdbcTemplate.update(sql,message.sender_id(),message.conversation_id(),message.text(),message.created_at());
