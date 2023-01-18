@@ -1,4 +1,4 @@
-package com.example.chat.persistence;
+package com.example.chat.persistence.message;
 
 import java.util.List;
 

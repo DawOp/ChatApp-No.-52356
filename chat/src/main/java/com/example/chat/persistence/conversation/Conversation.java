@@ -1,4 +1,4 @@
-package com.example.chat.persistence;
+package com.example.chat.persistence.conversation;
 
 public record Conversation(Integer id,
                            String name,
