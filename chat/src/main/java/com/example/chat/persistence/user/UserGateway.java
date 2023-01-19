@@ -13,11 +13,13 @@ public class UserGateway {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<User> selectUsers() {
+    public Optional<User> selectUserById(int id) {
         var sql = """
                 SELECT *
-                FROM USERS""";
-        return jdbcTemplate.query(sql,new UserMapper());
+                FROM USERS
+                WHERE id = ?
+                """;
+        return jdbcTemplate.query(sql,new UserMapper(),id).stream().findFirst();
     }
 
     public int addUser(User user) {
@@ -29,13 +31,22 @@ public class UserGateway {
         return jdbcTemplate.update(sql,user.first_name(),user.second_name(),user.email(),user.password());
     }
 
-    public Optional<User> getUserById(int id) {
-        // TODO
+    public Optional<User> getUserByEmail(String email) {
         var sql = """
                 SELECT *
                 FROM USERS
-                WHERE id = ?
+                WHERE email = ?
                 """;
-        return jdbcTemplate.query(sql,new UserMapper(),id).stream().findFirst();
+        return jdbcTemplate.query(sql,new UserMapper(),email).stream().findFirst();
+    }
+
+    public Optional<User> authenticateUser(String email, String password) {
+        var sql = """
+                SELECT *
+                FROM USERS
+                WHERE email = ?
+                AND password = crypt(?, password);
+                """;
+        return jdbcTemplate.query(sql,new UserMapper(),email,password).stream().findFirst();
     }
 }
