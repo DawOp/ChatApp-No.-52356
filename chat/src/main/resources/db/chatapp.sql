@@ -17,7 +17,7 @@ CREATE TABLE "messages" (
   "sender_id" INTEGER,
   "conversation_id" INTEGER,
   "text" TEXT NOT NULL,
-  "created_at" DATE
+  "created_at" TIMESTAMP
 );
 
 CREATE TABLE "contacts" (
