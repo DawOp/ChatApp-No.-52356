@@ -14,7 +14,7 @@ public class ConversationGateway {
 
     public int addConversation(Conversation conversation) {
         var sql = """ 
-                INSERT INTO CONVERSATIONS (name, contact_id)
+                INSERT INTO CONVERSATIONS (contact_id, name)
                 VALUES (?,?)
                 """;
         return jdbcTemplate.update(sql,conversation.name(),conversation.contact_id());
@@ -23,12 +23,12 @@ public class ConversationGateway {
     public int deleteConversation(int id) {
         var sql = """ 
                 DELETE FROM CONVERSATIONS
-                WHERE id=?
+                WHERE contact_id=?
                 """;
         return jdbcTemplate.update(sql,id);
     }
 
-    public Optional<Conversation> selectConversationByContactId(int contact_id) {
+    public Optional<Conversation> selectConversationById(int contact_id) {
         var sql = """ 
                 SELECT *
                 FROM CONVERSATIONS
@@ -41,8 +41,8 @@ public class ConversationGateway {
         var sql = """ 
                 UPDATE CONVERSATIONS
                 SET name = ?
-                WHERE id = ?
+                WHERE contact_id = ?
                 """;
-        return jdbcTemplate.update(sql,conversation.name(),conversation.id());
+        return jdbcTemplate.update(sql,conversation.name(),conversation.contact_id());
     }
 }

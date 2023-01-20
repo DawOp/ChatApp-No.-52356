@@ -9,9 +9,8 @@ public class ConversationMapper implements RowMapper<Conversation> {
     @Override
     public Conversation mapRow(ResultSet resultSet, int i) throws SQLException {
         return new Conversation(
-                resultSet.getInt("id"),
-                resultSet.getString("name"),
-                resultSet.getInt("contact_id")
+                resultSet.getInt("contact_id"),
+                resultSet.getString("name")
                 );
     }
 }
