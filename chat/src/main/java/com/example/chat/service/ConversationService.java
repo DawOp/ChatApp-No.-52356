@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConversationService {
-    public final ConversationGateway conversationGateway;
+    private final ConversationGateway conversationGateway;
 
     public ConversationService(ConversationGateway conversationGateway) {
         this.conversationGateway = conversationGateway;
