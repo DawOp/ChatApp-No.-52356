@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class MessageMapper implements RowMapper<Message> {
@@ -14,7 +15,7 @@ public class MessageMapper implements RowMapper<Message> {
                 resultSet.getInt("sender_id"),
                 resultSet.getInt("conversation_id"),
                 resultSet.getString("text"),
-                LocalDate.parse(resultSet.getString("created_at"))
+                Timestamp.valueOf(resultSet.getString("created_at"))
         );
     }
 }
