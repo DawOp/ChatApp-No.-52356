@@ -27,7 +27,7 @@ public class ContactService {
 
         return users.stream().
                 map(c -> new RemoteContact(c.id(),c.first_name()
-                        + " " + c.second_name() + " " +c.email())).toList();
+                        + " " + c.second_name() + " (" + c.email() +")")).toList();
     }
 
     public int addContact(Integer owner_id, String email, UserService userService) {
