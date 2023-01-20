@@ -17,7 +17,7 @@ public class ConversationGateway {
                 INSERT INTO CONVERSATIONS (contact_id, name)
                 VALUES (?,?)
                 """;
-        return jdbcTemplate.update(sql,conversation.name(),conversation.contact_id());
+        return jdbcTemplate.update(sql,conversation.contact_id(),conversation.name());
     }
 
     public int deleteConversation(int id) {
