@@ -7,9 +7,8 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "conversations" (
-  "id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(255) NOT NULL,
-  "contact_id" INTEGER
+  "contact_id" SERIAL PRIMARY KEY,
+  "name" VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE "messages" (
